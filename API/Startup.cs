@@ -36,7 +36,8 @@ namespace API
             services.AddCors(options =>
                 options.AddPolicy(JSClientCors, builder =>
                     builder
-                        .WithOrigins(Configuration["JSClientURI"])
+                        // .WithOrigins(Configuration["JSClientURI"])
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod()));
 
