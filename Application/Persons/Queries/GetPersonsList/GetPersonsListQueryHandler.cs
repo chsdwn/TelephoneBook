@@ -36,11 +36,11 @@ namespace Application.Persons.Queries.GetPersonsList
                     .ToListAsync();
             else if (!string.IsNullOrEmpty(request.LastName))
                 personList = await _context.Persons
-                    .Where(p => p.LastName.Contains(request.FirstName))
+                    .Where(p => p.LastName.ToLower().Contains(request.LastName.ToLower()))
                     .ToListAsync();
             else if (!string.IsNullOrEmpty(request.City))
                 personList = await _context.Persons
-                    .Where(p => p.City.Contains(request.City))
+                    .Where(p => p.City.ToLower().Contains(request.City.ToLower()))
                     .ToListAsync();
             else if (!string.IsNullOrEmpty(request.PhoneNumber))
                 personList = await _context.Persons
